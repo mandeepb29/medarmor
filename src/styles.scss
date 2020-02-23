@@ -10191,7 +10191,7 @@
   .sidebar #sidebarToggle::after {
     font-weight: 900;
     content: '\f104';
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'FontAwesome';
     margin-right: 0.1rem;
   }
   
@@ -10210,7 +10210,7 @@
   
   .sidebar.toggled #sidebarToggle::after {
     content: '\f105';
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'FontAwesome';
     margin-left: 0.25rem;
   }
   
