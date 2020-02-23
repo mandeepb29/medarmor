@@ -7,7 +7,7 @@ import * as $ from 'jquery';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'health-dashboard';
+  title = 'medarmor';
 constructor(){}
 ngOnInit(){
  // Toggle the side navigation

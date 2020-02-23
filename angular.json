@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "health-dashboard": {
+    "medarmor": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/health-dashboard",
+            "outputPath": "dist/medarmor",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "health-dashboard:build"
+            "browserTarget": "medarmor:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "health-dashboard:build:production"
+              "browserTarget": "medarmor:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "health-dashboard:build"
+            "browserTarget": "medarmor:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "health-dashboard:serve"
+            "devServerTarget": "medarmor:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "health-dashboard:serve:production"
+              "devServerTarget": "medarmor:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "health-dashboard"
+  "defaultProject": "medarmor"
 }
