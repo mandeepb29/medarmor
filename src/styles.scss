@@ -9571,13 +9571,21 @@
   
   #wrapper #content-wrapper {
     background-color: #f8f9fc;
-    width: 100%;
+    //width: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
     width: calc(100% - 14rem);
     position: absolute;
     right: 0;
     top: 0;
     transition: all 0.3s ease-in-out;
+  }
+
+  .page-title{
+    margin:4rem 0 3rem;
+    font-weight: 700;
+    color: #42444e;
+    text-transform: uppercase;
   }
 
   .inc-width{

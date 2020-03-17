@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path:'edit-profile',
         loadChildren: './edit-profile/edit-profile.module#EditProfileModule'
+      },
+      {
+        path:'health-card',
+        loadChildren: './health-card/health-card.module#HealthCardModule'
       }
     ]
   }

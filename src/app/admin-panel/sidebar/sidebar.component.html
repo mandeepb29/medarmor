@@ -13,9 +13,10 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-      <a class="nav-link " routerLink="/admin">
-        <i class="fa fa-fw fa-tachometer-alt"></i>
+    <li class="nav-item">
+      <a class="nav-link " routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}">
+        <i class="fa fa-fw fa-tachometer"></i>
         <span>Dashboard</span></a>
     </li>
 
@@ -30,16 +31,25 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-      <a class="nav-link"  routerLink="/admin/genome-data">
+      <a class="nav-link"  routerLink="/admin/genome-data" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}">
         <i class="fa fa-fw fa-plus"></i>
         <span>Upload Genome Data</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-      <a class="nav-link"  routerLink="/admin/edit-profile">
+      <a class="nav-link"  routerLink="/admin/edit-profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}">
         <i class="fa fa-fw fa-user"></i>
-        <span>User Profile</span></a>
+        <span>Edit Profile</span></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link"  routerLink="/admin/health-card" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}">
+        <i class="fa fa-fw fa-medkit"></i>
+        <span>Health Card</span></a>
     </li>
 
     
