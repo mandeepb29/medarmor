@@ -11,6 +11,14 @@ const routes: Routes = [
       {
         path:'',
         component: DashboardComponent
+      },
+      {
+        path:'genome-data',
+        loadChildren: './genome-data/genome-data.module#GenomeDataModule'
+      },
+      {
+        path:'edit-profile',
+        loadChildren: './edit-profile/edit-profile.module#EditProfileModule'
       }
     ]
   }
