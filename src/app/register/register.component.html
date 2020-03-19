@@ -4,11 +4,11 @@
             <h1 class="page-title text-center">
               Registration Form
             </h1>
-        
+
         </div>
 
-        <form id="msform">
-  
+        <form id="msform" [formGroup]="form" (submit)="updateProfile()">
+
             <!-- progressbar -->
             <ul id="progressbar">
               <li class="active">General Details</li>
@@ -17,220 +17,220 @@
               <li>Health Details</li>
             </ul>
             <!-- fieldsets -->
-            
+
             <fieldset>
-              
+
               <h2 class="fs-title">General Details</h2>
-              
+
               <div class="row">
 
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">What is your age?</label>
                     <input formControlName="age" type="number" id="input-first-name" class="form-control" placeholder="Enter your age" value="">
-                   
+
                   </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="martial">Please choose the gender you identify yourself closest to: </label>
-                      <select formControlName="course_name" id="martial" class="form-control">
+                      <select formControlName="gender" id="martial" class="form-control">
                           <option value="" selected>Select your gender</option>
-                          <option value="">Male  </option>
-                          <option value="">Female  </option>
-                          <option value="">Non-Binary  </option>
-                          
+                          <option value="Male">Male  </option>
+                          <option value="Female">Female  </option>
+                          <option value="Non-Binary">Non-Binary  </option>
+
                           </select>
-                     
+
                     </div>
                   </div>
 
                   <div class="col-lg-12">
                     <div class="form-group">
                       <label class="form-control-label" for="input-first-name">Please indicate the number of years of education completed. </label>
-                      <input formControlName="age" type="number" id="input-first-name" class="form-control" placeholder="Enter your number of years of education completed" value="">
-                     
+                      <input formControlName="education_completion_year" type="number" id="input-first-name" class="form-control" placeholder="Enter your number of years of education completed" value="">
+
                     </div>
                   </div>
 
               </div>
-              
+
               <input type="button" name="next"  class="mt-2 btn btn-lg btn-primary next action-button" value="Next" />
-              
+
             </fieldset>
-            
+
             <fieldset>
-              
+
               <h2 class="fs-title">Personal Details</h2>
-              
-                 
+
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="region">Which Census region do you belong to? (Please choose one that applies) </label>
-                      <select formControlName="course_name" id="region" class="form-control">
+                      <select formControlName="census_region" id="region" class="form-control">
                           <option value="" selected>Select your region</option>
-                          <option value="">North-east</option>
-                          <option value="">Mid-west</option>
-                          <option value="">South</option>
-                          <option value="">West</option>
-                          <option value=""> None of the Above</option>
+                          <option value="North-east">North-east</option>
+                          <option value="Mid-west">Mid-west</option>
+                          <option value="South">South</option>
+                          <option value="West">West</option>
+                          <option value="None of the Above"> None of the Above</option>
                           </select>
-                     
+
                     </div>
                   </div>
 
                    <div class="col-md-12">
                                     <div class="form-group">
                                       <label class="form-control-label" for="martial">What is your Marital Status? (Please choose one that applies)</label>
-                                      <select formControlName="course_name" id="martial" class="form-control">
+                                      <select formControlName="marital_status" id="martial" class="form-control">
                                           <option value="" selected>Select your martial status</option>
-                                          <option value="">Married </option>
-                                          <option value="">Widowed </option>
-                                          <option value="">Divorced </option>
-                                          <option value="">Separated </option>
-                                          <option value="">Never Married  </option>
-                                          <option value="">Inapplicable (age < 16)  </option>
-                                          <option value=""> Do not wish to provide  </option>
+                                          <option value="Married">Married </option>
+                                          <option value="Widowed">Widowed </option>
+                                          <option value="Divorced">Divorced </option>
+                                          <option value="Separated">Separated </option>
+                                          <option value="Never Married">Never Married  </option>
+                                          <option value="Inapplicable">Inapplicable (age < 16)  </option>
+                                          <option value="Do not wish to provide"> Do not wish to provide  </option>
                                           </select>
-                                     
+
                                     </div>
                                   </div>
 
                                   <div class="col-md-12">
                                     <div class="form-group">
                                       <label class="form-control-label" for="martial">Please choose the race that you identify yourself closest with: </label>
-                                      <select formControlName="course_name" id="martial" class="form-control">
+                                      <select formControlName="race" id="martial" class="form-control">
                                           <option value="" selected>Select your race</option>
-                                          <option value="">Hispanic  </option>
-                                          <option value="">White  </option>
-                                          <option value="">Black or African American  </option>
-                                          <option value="">American Indian, Alaskan Native or Multiple races  </option>
-                                          <option value="">Asian, Hawaiian, or Pacific Islander   </option>
-                                          <option value=""> Other   </option>
+                                          <option value="Hispanic">Hispanic  </option>
+                                          <option value="White">White  </option>
+                                          <option value="Black or African American">Black or African American  </option>
+                                          <option value="American Indian, Alaskan Native or Multiple races">American Indian, Alaskan Native or Multiple races  </option>
+                                          <option value="Asian, Hawaiian, or Pacific Islander">Asian, Hawaiian, or Pacific Islander   </option>
+                                          <option value="Other"> Other   </option>
                                           </select>
-                                     
+
                                     </div>
                                   </div>
             </div>
-         
+
                 <input type="button" name="previous" class="btn btn-lg btn-primary previous action-button" value="Previous" />
                 <input type="button" name="next" class="btn btn-lg btn-primary next action-button" value="Next" />
-         
-              
-          
+
+
+
             </fieldset>
 
             <fieldset>
-              
+
                 <h2 class="fs-title">Financial Details</h2>
-                
-                   
+
+
               <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="martial">What is your current employment status? (Please choose one that applies)  </label>
-                      <select formControlName="course_name" id="martial" class="form-control">
+                      <select formControlName="employement_status" id="martial" class="form-control">
                           <option value="" selected>Select your employment status</option>
-                          <option value="">Permanently Employed   </option>
-                          <option value="">Returning to Job after break   </option>
-                          <option value="">Temporarily Employed   </option>
-                          <option value="">Unemployed   </option>
-                          <option value=""> Do not wish to provide    </option>
+                          <option value="Permanently Employed">Permanently Employed   </option>
+                          <option value="Returning to Job after break">Returning to Job after break   </option>
+                          <option value="Temporarily Employed">Temporarily Employed   </option>
+                          <option value="Unemployed">Unemployed   </option>
+                          <option value="Do not wish to provide"> Do not wish to provide    </option>
                           </select>
-                     
+
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="martial">What type of Insurance coverage do you have? (Please choose one that applies)  </label>
-                      <select formControlName="course_name" id="martial" class="form-control">
+                      <select formControlName="insurance_coverage" id="martial" class="form-control">
                           <option value="" selected>Select your Insurance coverage</option>
-                          <option value="">Private  </option>
-                          <option value="">Public </option>
-                          <option value="">Uninsured </option>
-                          
+                          <option value="Private">Private  </option>
+                          <option value="Public">Public </option>
+                          <option value="Uninsured">Uninsured </option>
+
                           </select>
-                     
+
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="martial">Please indicate the income segment you most closely identify with. </label>
-                      <select formControlName="course_name" id="martial" class="form-control">
+                      <select formControlName="income_segment" id="martial" class="form-control">
                           <option value="" selected>Select your Income segment</option>
-                          <option value="">Negative or Poor  </option>
-                          <option value="">Below Poverty Line </option>
-                          <option value="">Low Income </option>
-                          <option value="">Middle Income </option>
-                          <option value=""> High Income  </option>
+                          <option value="Negative or Poor">Negative or Poor  </option>
+                          <option value="Below Poverty Line">Below Poverty Line </option>
+                          <option value="Low Income">Low Income </option>
+                          <option value="Middle Income">Middle Income </option>
+                          <option value="High Income"> High Income  </option>
                           </select>
-                     
+
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="form-group">
                       <label class="form-control-label" for="input-first-name">Please enter your current income. </label>
-                      <input formControlName="age" type="number" id="input-first-name" class="form-control" placeholder="Enter your current income." value="">
-                     
+                      <input formControlName="current_income" type="number" id="input-first-name" class="form-control" placeholder="Enter your current income." value="">
+
                     </div>
                   </div>
               </div>
-            
+
                   <input type="button" name="previous" class="btn btn-lg btn-primary previous action-button" value="Previous" />
                   <input type="button" name="next" class="btn btn-lg btn-primary next action-button" value="Next" />
-              
-                
-            
+
+
+
               </fieldset>
 
               <fieldset>
-              
+
                 <h2 class="fs-title">Health Details</h2>
-                
-                   
+
+
               <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="martial">Please indicate your current health status.  </label>
-                      <select formControlName="course_name" id="martial" class="form-control">
+                      <select formControlName="health_status" id="martial" class="form-control">
                           <option value="" selected>Select your  Current health status</option>
-                          <option value="">Excellent</option>
-                          <option value="">Very Good</option>
-                          <option value="">Good</option>
-                          <option value="">Fair</option>
-                          <option value="">Poor</option>
+                          <option value="Excellent">Excellent</option>
+                          <option value="Very Good">Very Good</option>
+                          <option value="Good">Good</option>
+                          <option value="Fair">Fair</option>
+                          <option value="Poor">Poor</option>
                           </select>
                     </div>
                   </div>
-    
+
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="form-control-label" for="martial">Please indicate your current mental health status.</label>
-                      <select formControlName="course_name" id="martial" class="form-control">
+                      <select formControlName="mental_health_status" id="martial" class="form-control">
                           <option value="" selected>Select your  Current mental health status</option>
-                          <option value="">Excellent</option>
-                          <option value="">Very Good</option>
-                          <option value="">Good</option>
-                          <option value="">Fair</option>
-                          <option value="">Poor</option>
+                          <option value="Excellent">Excellent</option>
+                          <option value="Very Good">Very Good</option>
+                          <option value="Good">Good</option>
+                          <option value="Fair">Fair</option>
+                          <option value="Poor">Poor</option>
                           </select>
                     </div>
                   </div>
                  </div>
-            
-                  <input type="button" name="previous" class="btn btn-lg btn-primary previous action-button" value="Previous" />
-                  <input type="button" name="button" routerLink="/admin" class="btn btn-lg btn-primary next action-button" value="Submit" />
-            
-              </fieldset>
-              
-   
 
-            
+                  <input type="button" name="previous" class="btn btn-lg btn-primary previous action-button" value="Previous" />
+                  <input type="submit" name="button" class="btn btn-lg btn-primary next action-button" value="Submit" />
+
+              </fieldset>
+
+
+
+
           </form>
-         
+
 </div>
 
- 
+
 

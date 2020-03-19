@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormControl } from "@angular/forms";
+import { AuthService } from '../auth.service';
 declare var $ :any;
 
 @Component({
@@ -8,7 +10,9 @@ declare var $ :any;
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+  submited: boolean = false;
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
 ///jQuery time
@@ -19,15 +23,15 @@ var animating; //flag to prevent quick multi-click glitches
 $(".next").click(function(){
 	if(animating) return false;
 	animating = true;
-	
+
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();
-	
+
 	//activate next step on progressbar using the index of next_fs
 	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-	
+
 	//show the next fieldset
-	next_fs.show(); 
+	next_fs.show();
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -43,12 +47,12 @@ $(".next").click(function(){
         'position': 'absolute'
       });
 			next_fs.css({'left': left, 'opacity': opacity});
-		}, 
-		duration: 800, 
+		},
+		duration: 800,
 		complete: function(){
 			current_fs.hide();
 			animating = false;
-		}, 
+		},
 		//this comes from the custom easing plugin
 		easing: 'easeInOutBack'
 	});
@@ -57,15 +61,15 @@ $(".next").click(function(){
 $(".previous").click(function(){
 	if(animating) return false;
 	animating = true;
-	
+
 	current_fs = $(this).parent();
 	previous_fs = $(this).parent().prev();
-	
+
 	//de-activate current step on progressbar
 	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-	
+
 	//show the previous fieldset
-	previous_fs.show(); 
+	previous_fs.show();
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
@@ -78,12 +82,12 @@ $(".previous").click(function(){
 			opacity = 1 - now;
 			current_fs.css({'left': left});
 			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-		}, 
-		duration: 800, 
+		},
+		duration: 800,
 		complete: function(){
 			current_fs.hide();
 			animating = false;
-		}, 
+		},
 		//this comes from the custom easing plugin
 		easing: 'easeInOutBack'
 	});
@@ -92,6 +96,35 @@ $(".previous").click(function(){
 $(".submit").click(function(){
 	return false;
 })
+
+this.form = new FormGroup({
+  id: new FormControl(null, { validators: [Validators.required] }),
+  age: new FormControl(null, {validators: [Validators.required]}),
+  gender: new FormControl(null, {validators: [Validators.required]}),
+  education_completion_year: new FormControl(null, { validators: [Validators.required] }),
+  census_region: new FormControl(null, { validators: [Validators.required] }),
+  marital_status: new FormControl(null, { validators: [Validators.required] }),
+  race: new FormControl(null, { validators: [Validators.required] }),
+  employement_status: new FormControl(null, { validators: [Validators.required] }),
+  insurance_coverage: new FormControl(null, { validators: [Validators.required] }),
+  income_segment: new FormControl(null, { validators: [Validators.required] }),
+  current_income: new FormControl(null, { validators: [Validators.required] }),
+  health_status: new FormControl(null, { validators: [Validators.required] }),
+  mental_health_status: new FormControl(null, { validators: [Validators.required] })
+});
+
+  }
+
+  updateProfile() {
+    console.log(this.form.value);
+    this.form.patchValue({
+      id: this.auth.id
+    })
+    if(this.form.invalid) {
+      return;
+    }
+    console.log(this.form.value);
+    this.auth.updateProfile(this.form.value);
   }
 
 }

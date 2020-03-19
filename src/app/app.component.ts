@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,9 @@ import * as $ from 'jquery';
 })
 export class AppComponent implements OnInit {
   title = 'medarmor';
-constructor(){}
+constructor(public auth: AuthService){}
 ngOnInit(){
+  this.auth.checkLocalStorage();
  // Toggle the side navigation
  $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
   $("body").toggleClass("sidebar-toggled");
@@ -55,5 +57,5 @@ $(document).on('click', 'a.scroll-to-top', function(e) {
   e.preventDefault();
 });
 }
- 
+
 }
