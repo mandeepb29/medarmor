@@ -61,7 +61,7 @@ export class AuthService {
       localStorage.setItem('id', this.id);
       localStorage.setItem('form_filled', this.form_filled);
 
-      if(this.form_filled) this.router.navigate(['/admin'])
+      if(this.form_filled == 'true') this.router.navigate(['/admin'])
       else this.router.navigate(['/register'])
     })
   }
