@@ -132,19 +132,19 @@
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Your Health Card</h6>
-           
+
           </div>
           <!-- Card Body -->
           <div class="card-body">
            <div class="profile-img">
              <img class="shadow-sm" src="https://images.pexels.com/photos/3116381/pexels-photo-3116381.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
             <div class="name">
-              John Rogan
+              {{user?.name}}
             </div>
                <span class="age">
-                26 years old
+                {{user?.age}} years old
                </span>
-             
+
            </div>
 
            <div class="user-stat">
@@ -163,13 +163,17 @@
               Lorem ipsum dolor sit amet consectetur.
             </h5>
           </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-sm btn-primary mt-4" routerLink="/admin/health-card">See More</button>
+          </div>
             </div>
           </div>
         </div>
       </div>
 
-    
-   
+
+
 
     <!-- Content Row -->
     <div class="row">
@@ -202,16 +206,16 @@
                             </div>
                         </div>
                     </div>
-                  
-                  
-                 
-              
+
+
+
+
                 </div>
               </div>
           </div>
 
       </div>
 
-   
+
     </div>
 

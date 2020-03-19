@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,14 +28,18 @@ export class DashboardComponent implements OnInit {
     {data: [28, 48, 40, 19, 86, 27], label: 'lorem ispum',backgroundColor: [
       '#153641','#153641','#153641','#153641','#153641','#153641'
     ]},
-    
+
   ];
 
- 
-
-  constructor() { }
+  user;
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.getUser()
+    .subscribe(result=> {
+      console.log(result);
+      this.user = result.result
+    })
   }
 
 }

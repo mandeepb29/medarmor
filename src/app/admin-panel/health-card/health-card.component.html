@@ -14,14 +14,14 @@
             <div class="profile-img">
               <img class="shadow-sm" src="https://images.pexels.com/photos/3116381/pexels-photo-3116381.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
              <div class="name">
-               John Rogan
+              {{user?.name}}
              </div>
                 <span class="age">
-                 26 years old
+                 {{user?.age}} years old
                 </span>
-              
+
             </div>
- 
+
             <div class="user-stat">
               <p>
                Diseases Probability
@@ -37,6 +37,87 @@
              <h5>
                Lorem ipsum dolor sit amet consectetur.
              </h5>
+           </div>
+           <div class="user-details">
+             <h4 class="text-center mt-3 mb-4">
+               More Details:
+             </h4>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="detail">
+                  <strong>
+                    Age:
+                  </strong>
+                  {{user?.age}} Years
+                </div>
+                <div class="detail">
+                  <strong>
+                    Region:
+                  </strong>
+                  {{user?.census_region}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Martial Status:
+                  </strong>
+                  {{user?.marital_status}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Race:
+                  </strong>
+                  {{user?.race}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Gender:
+                  </strong>
+                  {{user?.gender}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Income Segment:
+                  </strong>
+                  {{user?.income_segement}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Current Income:
+                  </strong>
+                  {{user?.current_income}} USD
+                </div>
+
+              </div>
+              <div class="col-md-6">
+                <div class="detail">
+                  <strong>
+                    Employement Status:
+                  </strong>
+                  {{user?.employement_status}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Insaurance Coverage:
+                  </strong>
+                  {{user?.insurance_coverage}}
+                </div>
+
+                <div class="detail">
+                  <strong>
+                    Current Health Status:
+                  </strong>
+                  {{user?.health_status}}
+                </div>
+                <div class="detail">
+                  <strong>
+                    Current Mental Health Status:
+                  </strong>
+                  {{user?.mental_health_status}}
+                </div>
+
+              </div>
+            </div>
            </div>
              </div>
       </div>

@@ -14,7 +14,7 @@ export class AuthService {
   token=null;
   email=null;
   id=null;
-  form_filled:boolean = false;
+  form_filled = 'false';
 
   constructor(public http: HttpClient, public router: Router){}
 
@@ -24,10 +24,22 @@ export class AuthService {
 
     this.email = localStorage.getItem('email');
     this.id = localStorage.getItem('id');
-    this.form_filled = Boolean(localStorage.getItem('form_filled'));
+    this.form_filled = localStorage.getItem('form_filled');
     console.log(this.form_filled)
-    if(this.form_filled) this.router.navigate(['/admin/genome-data'])
+    if(this.form_filled == 'true') this.router.navigate(['/admin'])
     else this.router.navigate(['/register'])
+  }
+
+  register(values) {
+    return this.http.post<{
+      status: string;
+      msg: string;
+      result: any;
+    }>("https://medarmor-api.herokuapp.com/newuser", values)
+    .subscribe(result=> {
+      console.log(result);
+      alert('Registered Successfully');
+    })
   }
 
   login(values) {
@@ -37,6 +49,8 @@ export class AuthService {
       result: any;
     }>("https://medarmor-api.herokuapp.com/login", values)
     .subscribe(result=> {
+      console.log(result)
+      if(result.msg != 'Login Successfully') return alert(result.msg);
       this.id = result.result.id
       this.email = result.result.email
       this.token = result.result.token
@@ -45,7 +59,7 @@ export class AuthService {
       localStorage.setItem('token', this.token);
       localStorage.setItem('email', this.email);
       localStorage.setItem('id', this.id);
-      localStorage.setItem('form_filled', String(this.form_filled));
+      localStorage.setItem('form_filled', this.form_filled);
 
       if(this.form_filled) this.router.navigate(['/admin'])
       else this.router.navigate(['/register'])
@@ -60,9 +74,15 @@ export class AuthService {
     }>("https://medarmor-api.herokuapp.com/update-profile", values)
     .subscribe(result=> {
       console.log(result);
-      this.form_filled = true;
+      this.form_filled = 'true';
       localStorage.setItem('form_filled', 'true');
     })
+  }
+
+  logout() {
+    this.token = null;
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   getUser() {

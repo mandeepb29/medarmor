@@ -50,4 +50,16 @@ export class EditProfileComponent implements OnInit {
     })
   }
 
+  updateProfile() {
+    console.log(this.form.value);
+    this.form.patchValue({
+      id: this.auth.id
+    })
+    if(this.form.invalid) {
+      return;
+    }
+    console.log(this.form.value);
+    this.auth.updateProfile(this.form.value);
+  }
+
 }

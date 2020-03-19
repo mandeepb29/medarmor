@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-topbar',
@@ -8,9 +9,18 @@ import * as $ from 'jquery';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  user;
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.getUser()
+    .subscribe(result=> {
+      console.log(result);
+      this.user = result.result
+    })
   }
 
+  logout() {
+    this.auth.logout();
+  }
 }

@@ -10,7 +10,7 @@
           <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                  <form [formGroup]="form">
+                  <form [formGroup]="form" (submit)="updateProfile()">
                       <div class="row justify-content-center">
                         <div class="col-lg-12">
                           <div class="form-group">
@@ -163,7 +163,7 @@
                           <div class="col-lg-12">
                             <div class="form-group">
                               <label class="form-control-label" for="input-first-name">Please enter your current income. </label>
-                              <input formControlName="current_income" type="number" id="input-first-name" class="form-control" placeholder="Enter your age" value="">
+                              <input formControlName="age" type="number" id="input-first-name" class="form-control" placeholder="Enter your current income" value="">
 
                             </div>
                           </div>
