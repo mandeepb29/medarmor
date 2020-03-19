@@ -17,14 +17,14 @@
                       <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <input formControlName="age" type="file" id="file" class="form-control">
+                            <input (change)="onFileSelect($event.target)" type="file" id="file" class="form-control">
                           </div>
                         </div>
-                        <div class="col-lg-6">
+                        <!-- <div class="col-lg-6">
                             <button type="submit" class="btn  btn-primary">Submit</button>
-                        </div>
+                        </div> -->
                       </div>
-                   
+
                   </form>
                 </div>
               </div>
@@ -37,7 +37,11 @@
     </div>
     <div class="card-body">
       <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <!-- {{table_data}} -->
+        <div id="tablessss">
+
+        </div>
+        <!-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
               <th>Name</th>
@@ -48,7 +52,7 @@
               <th>Salary</th>
             </tr>
           </thead>
-         
+
           <tbody>
             <tr>
               <td>Tiger Nixon</td>
@@ -60,16 +64,22 @@
             </tr>
 
           </tbody>
-        </table>
+        </table> -->
       </div>
     </div>
   </div>
         </div>
     </div>
-        
 
-            
-        
+
+
+
     </div>
 
   </div>
+
+  <!-- <div [innerHTML]="table_data">
+
+    {{table_data}}
+  </div> -->
+
