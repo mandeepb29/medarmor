@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { AuthService } from 'src/app/auth.service';
 declare var $: any;
 
 @Component({
@@ -7,17 +8,37 @@ declare var $: any;
   styleUrls: ["./genome-data.component.scss"]
 })
 export class GenomeDataComponent implements OnInit {
-  csvContent: string;
+  csvContent;
   table_data;
   json_format;
-  constructor() {}
+  constructor(public auth: AuthService) {}
 
   ngOnInit(): void {}
 
   onFileLoad(fileLoadedEvent) {
+    console.log('hit')
     const textFromFileLoaded = fileLoadedEvent.target.result;
-    this.csvContent = textFromFileLoaded;
-    console.log(this.csvContent);
+    // console.log(textFromFileLoaded)
+
+  }
+
+  onFileSelect(input: HTMLInputElement) {
+    const files = input.files;
+    // console.log(files[0].target.result)
+    var content = this.csvContent;
+
+    if (files && files.length) {
+      // console.log("Filename: " + files[0].name);
+      // console.log("Type: " + files[0].type);
+      // console.log("Size: " + files[0].size + " bytes");
+
+      const fileToRead = files[0];
+
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        console.log(fileReader.result)
+        this.csvContent = fileReader.result;
+    // console.log(this.csvContent);
     let data = this.csvContent.split(/\r?\n|\r/);
     let column_array = [];
     let object_array = [];
@@ -36,46 +57,33 @@ export class GenomeDataComponent implements OnInit {
         } else {
           this.table_data += `<td> ${cell_data[cell_count]} </td>`;
           column_array[cell_count].push(cell_data[cell_count]);
-          console.log(column_array[cell_count])
+          // console.log(column_array[cell_count])
           let obj = {
             key: abc[cell_count],
             value: column_array[cell_count]
           };
-          console.log(obj)
+          // console.log(obj)
           object_array.push(obj);
         }
       }
       this.table_data += `</tr>`;
     }
     let result = {};
-    console.log(object_array,"Object Array")
-    console.log(column_array,"column Array")
+    // console.log(object_array,"Object Array")
+    // console.log(column_array,"column Array")
     for (let i = 0; i < object_array.length; i++) {
       result[object_array[i].key] = object_array[i].value;
     }
     console.log(result);
+    // this.auth.sendRequest(result);
     this.json_format = result;
+    // console.log(this.json_format);
     this.table_data += "</table>";
     this.table_data;
     $("#tablessss").html(this.table_data);
-  }
-
-  onFileSelect(input: HTMLInputElement) {
-    const files = input.files;
-    var content = this.csvContent;
-
-    if (files && files.length) {
-      console.log("Filename: " + files[0].name);
-      console.log("Type: " + files[0].type);
-      console.log("Size: " + files[0].size + " bytes");
-
-      const fileToRead = files[0];
-
-      const fileReader = new FileReader();
-      fileReader.onload = this.onFileLoad;
+      };
 
       fileReader.readAsText(fileToRead);
-      console.log(this.table_data, "file");
     }
   }
 
@@ -84,5 +92,6 @@ export class GenomeDataComponent implements OnInit {
     console.log('######################################')
     console.log(this.json_format);
     console.log('######################################')
+    this.auth.sendRequest(this.json_format);
   }
 }

@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
   ];
 
   user;
+  user_detail;
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
@@ -39,7 +40,12 @@ export class DashboardComponent implements OnInit {
     .subscribe(result=> {
       console.log(result);
       this.user = result.result
+      this.user_detail = JSON.stringify(this.user)
     })
+  }
+
+  send() {
+    // this.auth.sendRequest('wfwf');
   }
 
 }
