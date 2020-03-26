@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 declare var $ :any;
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup;
   submited: boolean = false;
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService,public router: Router) { }
 
   ngOnInit() {
 ///jQuery time
@@ -93,9 +94,6 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
-	return false;
-})
 
 this.form = new FormGroup({
   id: new FormControl(null, { validators: [Validators.required] }),
@@ -122,8 +120,10 @@ this.form = new FormGroup({
     })
     if(this.form.invalid) {
       return;
-    }
-    console.log(this.form.value);
+	}
+	
+	console.log(this.form.value);
+	this.router.navigate(['/admin/genome-data']);
     this.auth.updateProfile(this.form.value);
   }
 

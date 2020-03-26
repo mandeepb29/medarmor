@@ -12,6 +12,48 @@
     rel="stylesheet"
   />
 
+  <style>
+    .tick text {
+    font-size: 12px;
+    font-weight: 800;
+    color: #666;
+}
+.tick text{
+  font-size: 12px;
+  font-weight: 800;
+  font-family: "Nunito";
+  color: #101010;
+}
+text.label{
+  font-size: 13px;
+  font-weight: 800;
+  color: #101010;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #4C5554;
+    stroke-width: 1;
+}
+
+.x.axis .tick line {
+    display: block;
+    width: 1.5px;
+}
+
+.domain {
+    display: block !important;
+    stroke: #4C5554 !important;
+    stroke-width: 2 !important;
+}
+.legend {
+    font-size: 10px;
+    
+}
+.legend rect {
+        stroke-width: 2;
+    }
+  </style>
 </head>
 <body id="page-top">
   <app-root></app-root>
@@ -22,7 +64,12 @@
   <script src="assets/vendors/jquery-easing/jquery.easing.min.js"></script>
   <!-- Page level plugins -->
   <!-- <script src="assets/vendors/chart.js/Chart.min.js"></script> -->
-  <script src="node_modules/chart.js/src/chart.js"></script>
+  
+
+
+  <!-- <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  
 
 </body>
 </html>
