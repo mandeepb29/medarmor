@@ -65,7 +65,7 @@ export class AuthService {
       localStorage.setItem('id', this.id);
       localStorage.setItem('form_filled', this.form_filled);
 
-      if(localStorage.getItem('form_filled') == 'true') this.router.navigate(['/admin'])
+      if(localStorage.getItem('form_filled') == 'true') this.router.navigate(['/admin/genome-data'])
       else this.router.navigate(['/register'])
     })
   }

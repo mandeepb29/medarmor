@@ -20,9 +20,12 @@
                             <input (change)="onFileSelect($event.target)" type="file" id="file" class="form-control">
                           </div>
                         </div>
-                        <div class="col-lg-6">
-                            <button (click)="format()" type="button" class="btn  btn-primary">Submit</button>
+                        <div class="col-lg-4">
+                            <button (click)="format()" type="button" class="btn btn-primary">Submit</button>
                         </div>
+                        <div class="col-lg-2">
+                          <button routerLink="/admin" type="button" class="btn btn-primary">Check Results</button>
+                      </div>
                       </div>
 
                   </form>

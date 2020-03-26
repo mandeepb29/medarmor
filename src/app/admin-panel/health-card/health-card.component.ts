@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/auth.service';
 export class HealthCardComponent implements OnInit {
 
   user;
+  probability;
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
@@ -16,7 +17,10 @@ export class HealthCardComponent implements OnInit {
     .subscribe(result=> {
       console.log(result);
       this.user = result.result
+      this.probability = this.user.probability * 100;
     })
+
+    
   }
 
 }

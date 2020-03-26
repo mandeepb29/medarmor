@@ -95,6 +95,7 @@ $(".previous").click(function(){
 });
 
 
+
 this.form = new FormGroup({
   id: new FormControl(null, { validators: [Validators.required] }),
   age: new FormControl(null, {validators: [Validators.required]}),
@@ -110,6 +111,7 @@ this.form = new FormGroup({
   health_status: new FormControl(null, { validators: [Validators.required] }),
   mental_health_status: new FormControl(null, { validators: [Validators.required] })
 });
+
 
   }
 
