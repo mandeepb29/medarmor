@@ -16,6 +16,8 @@ export class AuthService {
   email=null;
   id=null;
   form_filled = 'false';
+  diseases_name;
+  diseases_probablity;
 
   constructor(public http: HttpClient, public router: Router){}
 
