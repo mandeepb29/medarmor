@@ -87,12 +87,16 @@
 
   .stats-column{
       .card-body{
-          padding: 1rem;
+          padding: 1rem 1rem 3.2rem;
 
           .h5{
-              color: #163a5f;
-              font-size: 2rem;
-              font-weight: bolder;
+            color: #163a5f;
+            font-size: 2rem;
+            font-weight: 800;
+            position: absolute;
+            bottom: 6px;
+            width: 100%;
+            left: 0;
           }
       }
   }
