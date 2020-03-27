@@ -89,6 +89,7 @@ export class GenomeDataComponent implements OnInit {
 
 
   format() {
+    alert("Genomic Data Uploaded");
     console.log('######################################')
     console.log(this.json_format);
     console.log('######################################')

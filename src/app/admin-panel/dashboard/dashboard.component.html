@@ -8,14 +8,14 @@
     <!-- Content Row -->
     <div class="container-fluid">
     <div class="row stats-column">
-    
+
       <div class="col-lg-2 col-md-4 mb-4" *ngFor="let item of cardData;">
         <div class="card border-left-black shadow h-100 py-2">
           <div class="card-body">
-           
+
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 text-center">{{item.title}}</div>
-                <div class="h5 text-center">{{item.value | number:'.1-2'}}</div>
-           
+                <div class="h5 text-center">&#x24; {{item.value | number:'.1-2'}}</div>
+
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-lg-6">
                   <div class="user-stat">
-                   
+
                     <div class="single-chart">
          <svg viewBox="0 0 36 36" class="circular-chart green">
            <path class="circle-bg"
@@ -116,7 +116,7 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 class="m-0 font-weight-bold text-primary">Cost Forecasting related to the Disease</h6>
-  
+
             </div>
             <!-- Card Body -->
             <div class="card-body" id="lineChartWrap">
